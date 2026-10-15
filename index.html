@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GG_PRO INTELIGENTE</title>
+<style>
+* { box-sizing:border-box; }
+body { margin:0; padding:0; background:#000; color:#fff; font-family:Arial, sans-serif; display:flex; justify-content:center; min-height:100vh; }
+.card { background:#121212; width:100%; max-width:420px; margin:15px; border-radius:25px; padding:20px; text-align:center; border:2px solid #ff004c; }
+.logo { width:100%; height:160px; background:linear-gradient(135deg,#ff004c,#7a001f); border-radius:20px; display:flex; align-items:center; justify-content:center; font-size:50px; font-weight:900; letter-spacing:5px; color:#fff; margin-bottom:15px; }
+.titulo { color:#ff004c; font-size:35px; margin:5px 0; }
+.sub { color:#888; font-size:13px; margin-bottom:15px; }
+.caixa { background:#1e1e1e; border-radius:15px; padding:15px; margin:15px 0; border-left:4px solid #ff004c; text-align:left; font-weight:bold; }
+.btn { display:block; width:100%; padding:18px; margin:10px 0; border-radius:14px; text-decoration:none; color:#fff; font-weight:900; font-size:16px; border:none; cursor:pointer; }
+.insta { background:linear-gradient(45deg,#f09433,#dc2743,#bc1888); }
+.yt { background:#FF0000; }
+.opcao { background:#222; border:2px solid #555; }
+.analisar { background:#ffcc00; color:#000; font-size:20px; margin-top:20px; }
+.zap { background:#25D366; font-size:20px; display:none; }
+.pergunta { background:#1e1e1e; border:2px dashed #ffcc00; border-radius:15px; padding:15px; margin:15px 0; }
+#telaScan { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000; z-index:999; flex-direction:column; justify-content:center; align-items:center; padding:20px; text-align:center; }
+.kiNum { font-size:80px; color:#ffcc00; font-weight:900; text-shadow:0 0 20px #ffcc00; }
+.barra { width:100%; max-width:350px; height:12px; background:#222; border-radius:10px; overflow:hidden; margin:20px 0; }
+.progresso { height:100%; width:0%; background:linear-gradient(90deg,#ffcc00,#ff0000); transition:width 0.1s; }
+.log { font-family:monospace; color:#00ff88; font-size:12px; margin-top:15px; }
+</style>
+</head>
+<body>
+
+<div class="card">
+<div class="logo">GG_PRO</div>
+<div class="titulo">GG_PRO</div>
+<div class="sub">SISTEMA INTELIGENTE - GRP_* OFICIAL</div>
+
+<div id="passo0" class="pergunta">
+<b>❓ PERGUNTA DA IA:</b><br>Qual Instagram voce tem?<br><br>
+<button class="btn opcao" onclick="escolher('normal')">📸 TENHO NORMAL</button>
+<button class="btn opcao" onclick="escolher('lite')">📱 TENHO LITE</button>
+</div>
+
+<div id="passo1" style="display:none;">
+<div class="caixa">PASSO 1 - Me segue ai pra liberar</div>
+<div id="areaInsta"></div>
+<a class="btn yt" href="https://www.youtube.com/@CRIADOR-DE-SALA-YT" target="_blank" onclick="clicou()">▶️ YOUTUBE - INSCREVER</a>
+<p id="aviso" style="color:#ffcc00; font-size:13px;">Clique nos botoes acima</p>
+</div>
+
+<div id="passo2">
+<div class="caixa">PASSO 2 - ROBO INTELIGENTE</div>
+<button id="btnAnalisar" class="btn analisar" onclick="iniciar()">🤖 ANALISAR COM IA - 1M DE KI</button>
+<a id="btnZap" class="btn zap" href="https://chat.whatsapp.com/KmKA53zIKql2mXeywQWKbm?s=cl&p=a&mlu=4&ilr=4&iam=0" target="_blank">💬 ENTRAR NO GRUPO DO ZAP</a>
+</div>
+
+</div>
+
+<div id="telaScan">
+<h2 style="color:#ffcc00;">🤖 ROBO SUPER INTELIGENTE</h2>
+<p>ANALISANDO SE VOCE SEGUIU...</p>
+<div class="kiNum" id="ki">0</div>
+<p style="color:#ffcc00;">KI DE PODER</p>
+<div class="barra"><div class="progresso" id="prog"></div></div>
+<div class="log" id="log">> Iniciando...</div>
+<br>
+<p style="font-size:16px;">🫂 Muito obrigado pela colaboracao!<br>Voce e nosso cliente VIP do app<br>Fico grato, ajude-nos a crescer ☺️</p>
+</div>
+
+<script>
+var cliques = 0;
+var tipo = "";
+
+function escolher(t){
+tipo = t;
+document.getElementById('passo0').style.display='none';
+document.getElementById('passo1').style.display='block';
+var area = document.getElementById('areaInsta');
+area.innerHTML = '<a class="btn insta" href="https://www.instagram.com/cria.dordemapas/" target="_blank" onclick="clicou()">📸 ABRIR @cria.dordemapas - INSTA '+t.toUpperCase()+'</a>';
+}
+
+function clicou(){
+cliques++;
+document.getElementById('aviso').innerHTML = '✅ Boa! Agora clica em ANALISAR embaixo';
+document.getElementById('aviso').style.color = '#25D366';
+}
+
+function iniciar(){
+document.getElementById('telaScan').style.display='flex';
+var ki = 0;
+var target = 1000000;
+var frases = ['> Conectando no Insta...','> Verificando @cria.dordemapas','> Checando YouTube...','> IA detectou seguidor real','> KI EXPLODINDO!','> 1 MILHAO DE KI!!!'];
+var f = 0;
+var intervalo = setInterval(function(){
+ki = ki + 55000;
+if(ki > target) ki = target;
+document.getElementById('ki').innerHTML = ki.toLocaleString('pt-BR');
+document.getElementById('prog').style.width = (ki/target*100) + '%';
+if(f < frases.length && ki > f * 180000){
+document.getElementById('log').innerHTML += '<br>' + frases[f];
+f++;
+}
+if(ki >= target){
+clearInterval(intervalo);
+document.getElementById('log').innerHTML += '<br>💥 1M DE KI LIBERADO!';
+setTimeout(function(){
+document.getElementById('telaScan').style.display='none';
+document.getElementById('btnZap').style.display='block';
+document.getElementById('btnAnalisar').style.display='none';
+document.getElementById('aviso').innerHTML = '🎉 LIBERADO COM 1M DE KI!';
+},1500);
+}
+},120);
+}
+</script>
+
+</body>
+</html>
